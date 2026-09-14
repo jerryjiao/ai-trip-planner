@@ -11,7 +11,7 @@ ZCode / Claude Code 里执行（本仓库同时是单插件 marketplace）：
 /plugin install ai-trip-planner@ai-trip-planner
 ```
 
-装完跑 `/trip-doctor` 看环境健康矩阵，然后 `/trip-plan` 开第一个攻略。环境引导与降级说明见 `skills/ai-trip-planner/references/setup.md`。
+装完跑 `/trip-doctor` 看环境健康矩阵，然后 `/trip-plan` 开第一个攻略。官网：https://ai-trip-planner-5b2.pages.dev/环境引导与降级说明见 `skills/ai-trip-planner/references/setup.md`。
 
 ## 为什么存在
 

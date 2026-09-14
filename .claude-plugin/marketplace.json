@@ -1,0 +1,22 @@
+{
+  "name": "ai-trip-planner",
+  "owner": {
+    "name": "jerryjiao",
+    "url": "https://github.com/jerryjiao"
+  },
+  "description": "中文旅行攻略工作流插件市场源",
+  "plugins": [
+    {
+      "name": "ai-trip-planner",
+      "source": "./",
+      "description": "中文旅行攻略工作流：从调研核数到特辑风网页成刊上线一条龙，自驾、自由行、亲子出行皆宜。",
+      "category": "productivity",
+      "keywords": [
+        "travel",
+        "guide",
+        "itinerary",
+        "攻略"
+      ]
+    }
+  ]
+}

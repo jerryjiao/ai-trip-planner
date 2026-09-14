@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DAY 1 · 第一天主题 · 云溪谷三日攻略</title>
+<link rel="stylesheet" href="zine.css">
+</head>
+<body>
+
+<div class="masthead">云溪谷三日 · 出游特辑 · <a class="jump" href="index.html">← 总览</a></div>
+
+<div class="page">
+
+  <h1 style="font-size:clamp(24px,5vw,34px);font-weight:900;letter-spacing:2px;margin:26px 0 2px;">DAY 1 · 第一天主题标题</h1>
+  <div class="sec-sub">日期 · 天气口径 · 一句话主线（例：赶早出发 → 上午核心项目 → 下午入住 → 楼下晚饭）</div>
+
+  <h2 class="sec" id="route"><span class="no">壹</span>今日动线</h2>
+  <!-- 每个节点一段 .leg，编号自动圆点 -->
+  <div class="leg">
+    <span class="num">1</span>
+    <div class="lt"><b>出发点</b><span class="tm">07:30</span></div>
+    <div class="addr">地址一句话</div>
+  </div>
+  <div class="leg">
+    <span class="num">2</span>
+    <div class="lt"><b>核心景区</b><span class="tm">09:00–11:30</span></div>
+    <div class="addr"><b>时段口径</b>（例：上午动物活跃，观光车直达）</div>
+  </div>
+  <div class="leg">
+    <span class="num">3</span>
+    <div class="lt"><b>入住</b><span class="tm">15:00</span></div>
+    <div class="addr">住宿一句话</div>
+  </div>
+
+  <h2 class="sec" id="timeline"><span class="no">贰</span>逐时安排</h2>
+  <ul class="tl">
+    <li><span class="tt">07:30</span>准时出发，早餐在车上解决（<a href="#lunch">午饭见伍</a>）</li>
+    <li><span class="tt">09:00</span>入园，先玩什么再玩什么的顺序口径</li>
+    <li><span class="tt">11:30</span>出园赶午饭</li>
+  </ul>
+
+  <h2 class="sec" id="drive"><span class="no">叁</span>今日车程</h2>
+  <div class="stop"><span class="n">自驾</span><span class="p">出发点 → 景区</span><span>XX km · XhXXm · 过路费 ¥XX（高德实测 · 日期）</span></div>
+  <div class="stop"><span class="n">自驾</span><span class="p">景区 → 住宿</span><span>XX km · XX 分钟（高德实测 · 日期）</span></div>
+  <p class="src">导航：<a class="amap" href="https://uri.amap.com/navigation?from=lng,lat,出发点&to=lng,lat,景区&mode=car&coordinate=gaode&callnative=0" target="_blank" rel="noopener">出发点 → 景区</a>（深链替换成真实坐标；公交/步行改 mode=bus / walk）</p>
+  <figure>
+    <div class="imgph">路线图占位 · scripts/amap-route.mjs 产物或高德截图</div>
+    <figcaption>今日路线图 · 来源与日期</figcaption>
+  </figure>
+
+  <h2 class="sec" id="ticket"><span class="no">肆</span>门票与预约</h2>
+  <div class="ticket">
+    <span class="th">景区名 · 门票</span>
+    成人 ¥XX（线上提前一日 ¥XX）· 儿童 XXXcm 以下免票 · 老人 XX 岁以上半价<br>
+    <b>预约口径</b>：哪个渠道、提前几天、几点放票<br>
+    来源：官方渠道名 · 核实日期 20XX-XX-XX · 未核实项标「待核实」
+  </div>
+
+  <h2 class="sec" id="lunch"><span class="no">伍</span>今天吃什么</h2>
+  <!-- 每餐首选+备选：rlabel=首选/备选 -->
+  <div class="rest">
+    <div class="rhd"><span class="rlabel">午餐首选</span><span class="rname">虚构示例餐厅（城南站）</span><span class="score">★ 4.7</span></div>
+    <div class="rmeta">人均 ¥XX · 口味X.X/环境X.X/服务X.X · 营业 11:00–14:00, 17:00–21:00 · 来源：点评实测 · 日期</div>
+    <div class="rmeta"><b>团购</b>：双人餐 ¥XXX（2人份）· 四人餐 ¥XXX（4人份）</div>
+    <div><span class="dish">招牌菜（3-4人份）</span><span class="dish">招牌菜（1人份）</span></div>
+    <div class="why">为什么选它：一句话（榜单/位置衔接/差评提炼的避雷点）</div>
+    <div class="lk"><a href="#" target="_blank" rel="noopener">点评店页 ↗</a></div>
+  </div>
+  <div class="rest">
+    <div class="rhd"><span class="rlabel alt">午餐备选1</span><span class="rname">虚构示例面馆</span></div>
+    <div class="rmeta">人均 ¥XX · 差异化标签：快、不排队 · 营业时间 · 来源与日期</div>
+  </div>
+  <div class="rest">
+    <div class="rhd"><span class="rlabel alt">午餐备选2</span><span class="rname">虚构示例火锅店</span></div>
+    <div class="rmeta">人均 ¥XX · 差异化标签：换口味（品类拉开）· 营业时间 · 来源与日期</div>
+  </div>
+
+  <h2 class="sec" id="tips"><span class="no">陆</span>实拍与贴士</h2>
+  <figure>
+    <div class="imgph">实拍图占位 · 逐张看内容再配文</div>
+    <figcaption>图注写清楚拍到的是什么、拍摄点位 · 来源如实标注</figcaption>
+  </figure>
+  <p class="lede">软情报贴士：动线怎么省力、哪个时段人少、现场才知道的细节（来源：小红书/间接源，消化后写）。</p>
+
+  <div class="series">
+    <a class="pv" href="index.html"><b>总览</b>云溪谷三日攻略</a>
+    <a class="nx" href="day.html"><b>下一篇 →</b>DAY 2 · 主题（改链接）</a>
+  </div>
+
+  <p class="src" style="margin-top:26px;">📎 本页数据来源汇总（车程/点评/门票/软情报各自标平台与日期）。</p>
+  <div class="end"><div class="fin">—— 完 ——</div><div style="margin-top:8px;">DAY 1 · 云溪谷三日攻略</div></div>
+
+</div>
+</body>
+</html>

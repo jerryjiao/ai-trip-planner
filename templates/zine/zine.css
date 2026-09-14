@@ -1,0 +1,151 @@
+/* zine · 攻略特辑风共用样式（模板壳）
+   来源：真实项目验收版式抽取，占位内容全部虚构。
+   六视口自适应：1440/1024 桌面 → 900 以下表格横滑 → 640 以下单列。
+   零依赖：不引任何外部 JS/CSS，勾选清单用原生 localStorage。 */
+
+:root{--ink:#233429;--sub:#76847a;--faint:#a3afa5;--line:#e6e1d2;--green:#1d7a53;--deep:#145239;--soft:#eef6f0;--amber:#a3691a;--paper:#fbfaf5;}
+*{-webkit-tap-highlight-color:transparent;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:var(--paper);color:var(--ink);font:14.5px/1.85 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;}
+a{color:var(--green);}
+.serif,h1,h2.sec,.teaser h3{font-family:"Noto Serif SC","Songti SC","STSong","SimSun",serif;}
+.page{max-width:720px;margin:0 auto;padding:0 clamp(15px,3.5vw,20px);}
+
+/* 平板以下：长表格转横向滑动，不硬压列宽 */
+@media (max-width:900px){
+  table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  th,td{min-width:10em;}
+}
+
+/* 刊头与 hero */
+.masthead{text-align:center;font-size:11px;letter-spacing:clamp(3px,1vw,7px);color:var(--faint);padding:18px 0 13px;border-bottom:1px solid var(--line);max-width:980px;margin:0 auto;}
+.hero{max-width:980px;margin:16px auto 0;height:clamp(265px,60vw,400px);position:relative;display:flex;align-items:flex-end;color:#fff;
+  background:linear-gradient(160deg,#2c5943,#123526);}
+.hero.has-img{background:linear-gradient(180deg,rgba(15,40,28,.10) 40%,rgba(9,32,22,.86)),url('img/hero.jpg') center/cover;}
+.hero .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:12.5px;letter-spacing:2px;color:rgba(255,255,255,.65);border:1px dashed rgba(255,255,255,.4);margin:14px;}
+.hero .txt{padding:clamp(18px,4vw,28px) clamp(18px,4vw,32px);position:relative;}
+.hero .kicker{display:inline-block;font-size:11.5px;letter-spacing:2px;border:1px solid rgba(255,255,255,.55);background:rgba(255,255,255,.14);border-radius:999px;padding:2px 13px;margin-bottom:10px;backdrop-filter:blur(3px);}
+.hero h1{margin:0;font-size:clamp(27px,6.2vw,40px);font-weight:900;letter-spacing:4px;text-shadow:0 2px 14px rgba(0,0,0,.35);}
+.hero .sub{margin-top:8px;font-size:13.5px;opacity:.94;letter-spacing:.5px;}
+
+.lede{font-size:15.5px;color:#3d5245;margin:26px 0 4px;padding:0 4px;}
+.lede b{color:var(--deep);}
+
+/* 章节标题：壹贰叁小节号 */
+h2.sec{display:flex;align-items:center;flex-wrap:wrap;gap:12px;font-size:23px;font-weight:900;letter-spacing:2px;margin:44px 0 6px;}
+h2.sec .no{flex:0 0 32px;width:32px;height:32px;border:1.5px solid var(--green);border-radius:50%;color:var(--green);font-size:14px;display:flex;align-items:center;justify-content:center;font-weight:700;}
+h2.sec .hint{font-size:12px;color:var(--faint);letter-spacing:0;font-family:-apple-system,sans-serif;font-weight:400;margin-left:auto;}
+.sec-sub{font-size:12.5px;color:var(--sub);margin:0 0 14px;}
+
+/* 首页日卡 */
+.teaser{display:grid;grid-template-columns:235px 1fr;gap:20px;padding:20px 0;border-top:1px dashed var(--line);}
+.teaser .img{width:100%;height:152px;object-fit:cover;border-radius:8px;display:block;background:repeating-linear-gradient(45deg,#eee9da 0 14px,#f6f2e6 14px 28px);display:flex;align-items:center;justify-content:center;color:var(--faint);font-size:12px;}
+.teaser .d{font-size:11px;letter-spacing:3px;color:var(--green);font-weight:700;}
+.teaser h3{margin:3px 0 6px;font-size:20px;font-weight:900;letter-spacing:1px;}
+.teaser h3 a{color:var(--ink);text-decoration:none;}
+.teaser h3 a:hover{color:var(--green);}
+.teaser ul{list-style:none;margin:0;padding:0;font-size:12.5px;color:var(--sub);line-height:1.8;}
+.teaser .dist{font-size:12px;color:var(--amber);font-weight:600;margin-top:5px;}
+.teaser .read{display:inline-block;margin-top:8px;font-weight:700;font-size:14px;color:var(--green);text-decoration:none;border-bottom:1.5px solid #9ccbb4;padding-bottom:1px;}
+
+/* 住处卡 */
+.hotel{border:1px solid var(--line);border-radius:12px;background:#fff;padding:18px 20px;}
+.hotel .hd{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;}
+.hotel .hd b{font-size:18.5px;font-weight:900;}
+.score{background:linear-gradient(135deg,#ff9f43,#ff6b6b);color:#fff;font-weight:700;border-radius:7px;padding:0 8px;font-size:12.5px;}
+.hotel .bd{font-size:13px;color:var(--sub);margin-top:7px;}
+.hotel .bd b{color:var(--amber);}
+.hotel .lnk{margin-top:9px;font-size:12.5px;}
+.hotel .lnk a{text-decoration:none;font-weight:600;border-bottom:1.5px dashed #9ccbb4;padding-bottom:1px;margin-right:16px;}
+
+/* 编辑部表格 */
+table{width:100%;border-collapse:collapse;}
+th{font-size:12.5px;color:var(--deep);text-align:left;padding:8px 10px;border-bottom:1.5px solid var(--ink);white-space:nowrap;font-weight:700;}
+td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top;font-size:13.5px;}
+td b{color:var(--deep);}
+
+/* 勾选清单（原生 localStorage） */
+.cks{display:grid;grid-template-columns:1fr 1fr;gap:0 26px;}
+label.ck{display:flex;gap:10px;align-items:flex-start;padding:7px 0;font-size:13.5px;cursor:pointer;line-height:1.6;}
+label.ck input{display:none;}
+label.ck .box{flex:0 0 17px;height:17px;border:1.5px solid #b9c2b6;border-radius:4px;margin-top:4px;background:#fff;position:relative;transition:all .15s;}
+label.ck .box::after{content:"";display:none;position:absolute;left:5px;top:1.5px;width:4px;height:8px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg);}
+label.ck input:checked + .box{background:var(--green);border-color:var(--green);}
+label.ck input:checked + .box::after{display:block;}
+label.ck input:checked ~ .lb{color:#8fa89a;text-decoration:line-through;text-decoration-color:#b5c8bc;}
+.ck-done{font-size:12px;color:var(--faint);margin-top:8px;}
+
+/* 日页：今日动线 */
+.leg{position:relative;padding:0 0 20px 36px;}
+.leg .num{position:absolute;left:0;top:2px;width:25px;height:25px;border-radius:50%;background:var(--deep);color:#fff;font-size:12.5px;display:flex;align-items:center;justify-content:center;font-weight:700;}
+.leg:not(:last-child)::after{content:"";position:absolute;left:12px;top:30px;bottom:2px;width:1.5px;background:var(--line);}
+.leg .lt{display:flex;justify-content:space-between;align-items:baseline;gap:10px;}
+.leg .lt b{font-size:16.5px;font-weight:900;letter-spacing:.5px;}
+.leg .lt .tm{flex:0 0 auto;font-size:12.5px;color:var(--green);font-weight:700;}
+.leg .addr{font-size:12.5px;color:var(--sub);margin:2px 0 4px;line-height:1.7;}
+.leg .addr b{color:#51604f;}
+
+/* 逐时时间轴（竖排数字） */
+.tl{list-style:none;margin:14px 0 0;padding:0;}
+.tl li{position:relative;padding:6px 0 6px 27px;font-size:13.8px;line-height:1.78;}
+.tl li::before{content:"";position:absolute;left:5px;top:15px;width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px #e2f0e7;}
+.tl li:not(:last-child)::after{content:"";position:absolute;left:8px;top:29px;bottom:-3px;width:1.5px;background:var(--line);}
+.tl .tt{font-weight:900;color:var(--deep);margin-right:9px;font-size:13.5px;}
+.tl a{color:var(--green);text-decoration:none;font-weight:600;}
+
+/* 车程段 */
+.stop{display:flex;gap:10px;align-items:baseline;margin:8px 0;font-size:12.8px;color:var(--sub);line-height:1.65;}
+.stop .n{flex:0 0 auto;font-weight:700;border-radius:6px;padding:1px 9px;font-size:12px;color:#fff;white-space:nowrap;background:var(--green);}
+.stop .p{flex:0 0 auto;font-weight:700;color:var(--ink);}
+
+/* 门票黄框 */
+.ticket{background:#fbf4e2;border-left:3px solid #d9a63f;border-radius:0 12px 12px 0;padding:15px 18px;font-size:13.5px;line-height:1.9;margin:18px 0;}
+.ticket .th{font-weight:900;color:var(--amber);font-size:15.5px;letter-spacing:1px;display:block;margin-bottom:4px;}
+.ticket b{color:var(--amber);}
+
+/* 餐厅卡：首选+备选 */
+.rest{border:1px solid var(--line);border-radius:12px;background:#fff;padding:14px 18px;margin:10px 0;}
+.rest .rhd{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;}
+.rest .rlabel{font-size:11px;font-weight:700;color:#fff;background:var(--green);border-radius:6px;padding:1px 9px;letter-spacing:1px;}
+.rest .rlabel.alt{background:#8ba394;}
+.rest .rname{font-size:16px;font-weight:900;}
+.rest .rmeta{font-size:12.5px;color:var(--sub);margin-top:4px;line-height:1.75;}
+.rest .rmeta b{color:var(--amber);}
+.rest .why{font-size:12.5px;color:#51604f;margin-top:6px;line-height:1.75;}
+.rest .lk{margin-top:6px;font-size:12px;}
+.rest .lk a{text-decoration:none;font-weight:600;border-bottom:1.5px dashed #9ccbb4;padding-bottom:1px;margin-right:14px;}
+.dish{display:inline-block;font-size:12px;background:var(--soft);border-radius:6px;padding:1px 9px;margin:2px 4px 2px 0;color:var(--deep);}
+.amap{display:inline-block;font-size:12px;border:1px solid #9ccbb4;border-radius:999px;padding:1px 12px;text-decoration:none;color:var(--green);font-weight:600;margin-top:6px;}
+
+/* 图注 */
+figure{margin:16px 0;}
+figure img{width:100%;border-radius:10px;display:block;}
+figure .imgph{width:100%;height:210px;border-radius:10px;background:repeating-linear-gradient(45deg,#eee9da 0 14px,#f6f2e6 14px 28px);display:flex;align-items:center;justify-content:center;color:var(--faint);font-size:12px;}
+figcaption{font-size:11.5px;color:var(--faint);margin-top:6px;line-height:1.7;}
+
+/* 锚点跳转 */
+.jump{font-size:12.5px;color:var(--green);text-decoration:none;font-weight:600;border-bottom:1.5px dashed #9ccbb4;padding-bottom:1px;}
+
+/* 系列导航 */
+.series{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:40px 0 0;}
+.series a{text-decoration:none;border-top:2px solid var(--ink);padding-top:10px;color:var(--sub);font-size:12px;line-height:1.5;}
+.series a b{display:block;font-size:16px;font-weight:900;color:var(--ink);margin-top:3px;letter-spacing:.5px;}
+.series a:hover b{color:var(--green);}
+.series a.nx{text-align:right;border-top-color:#b8c5ba;}
+
+.src{font-size:11.5px;color:var(--faint);line-height:1.9;margin:10px 0;}
+.end{text-align:center;padding:34px 0 54px;color:var(--faint);}
+.end .fin{font-size:15px;letter-spacing:8px;color:#93a298;}
+
+/* 窄屏 */
+@media (max-width:640px){
+  .page{padding:0 15px;}
+  .masthead{letter-spacing:3px;}
+  .teaser{grid-template-columns:1fr;gap:10px;}
+  .teaser .imgph,.teaser .img{height:170px;}
+  .cks{grid-template-columns:1fr;}
+  h2.sec{font-size:20px;}
+  .leg{padding-left:32px;}
+  .series{grid-template-columns:1fr;}
+  .series a.nx{text-align:left;}
+}

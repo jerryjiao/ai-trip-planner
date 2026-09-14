@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>方案对比 · 轻页模板 · 拍板用</title>
+<style>
+:root{--ink:#233429;--sub:#76847a;--faint:#a3afa5;--line:#e6e1d2;--green:#1d7a53;--deep:#145239;--soft:#eef6f0;--amber:#a3691a;--paper:#fbfaf5;}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+body{margin:0;background:var(--paper);color:var(--ink);font:14.5px/1.85 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;}
+.page{max-width:760px;margin:0 auto;padding:0 clamp(15px,4vw,28px) 60px;}
+.masthead{text-align:center;font-size:11px;letter-spacing:6px;color:var(--faint);padding:18px 0 13px;border-bottom:1px solid var(--line);}
+h1{font-family:"Noto Serif SC","Songti SC",serif;font-size:clamp(23px,5vw,32px);font-weight:900;letter-spacing:2px;margin:28px 0 2px;}
+.sec-sub{font-size:12.5px;color:var(--sub);margin:0 0 8px;}
+h2{font-family:"Noto Serif SC",serif;font-size:19px;font-weight:900;letter-spacing:1.5px;margin:34px 0 8px;color:var(--deep);}
+table{width:100%;border-collapse:collapse;}
+th{font-size:12.5px;color:var(--deep);text-align:left;padding:8px 10px;border-bottom:1.5px solid var(--ink);white-space:nowrap;}
+td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top;font-size:13.5px;}
+td b{color:var(--deep);}
+@media (max-width:900px){table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;}th,td{min-width:9em;}}
+.note{background:var(--soft);border-radius:10px;padding:12px 16px;font-size:13px;color:#3d5245;line-height:1.8;margin:12px 0;}
+.note b{color:var(--deep);}
+.reco{background:#fbf4e2;border-left:3px solid #d9a63f;border-radius:0 12px 12px 0;padding:14px 18px;font-size:13.5px;line-height:1.9;margin:16px 0;}
+.reco .th{font-weight:900;color:var(--amber);font-size:15px;letter-spacing:1px;display:block;margin-bottom:4px;}
+.src{font-size:11.5px;color:var(--faint);line-height:1.9;}
+.tag{display:inline-block;font-size:11.5px;background:#fff;border:1px solid #cdd8cf;border-radius:999px;padding:0 10px;margin:2px 4px 2px 0;color:var(--sub);}
+.end{text-align:center;padding:26px 0 40px;color:var(--faint);font-size:12px;}
+</style>
+</head>
+<body>
+<div class="masthead">出游方案 · 轻页 · 决策用</div>
+<div class="page">
+
+  <h1>去哪儿 · 三个候选方案</h1>
+  <div class="sec-sub">轻页只装决策级数据（车程/住宿可得/吸引点/门票档/粗预算）；拍板后再进逐天深调研。</div>
+
+  <h2>我们的需求</h2>
+  <div class="note">
+    <b>时间</b> X月X日–X日（X 晚）· <b>人数</b> X大X老X小（孩子 X 岁）· <b>预算</b> 人均 ¥X,XXX 内<br>
+    <b>出行方式</b> 自驾 / 公共交通 / 混合 · 活动半径 ≤Xh 车程 · <b>红线</b> 每天 ≤X 小时、老人不爬山等<br>
+    <b>偏好</b> 想要：XX；不要：XX
+  </div>
+
+  <h2>方案对比</h2>
+  <table>
+    <tr><th></th><th>方案A · 虚构目的地一</th><th>方案B · 虚构目的地二</th><th>方案C · 虚构目的地三</th></tr>
+    <tr><td><b>单程车程</b></td><td>XhXXm / XXXkm</td><td>XhXXm / XXXkm</td><td>XhXXm / XXXkm</td></tr>
+    <tr><td><b>住宿可得</b></td><td>有房 · ¥XXX/晚档</td><td>紧张 · 仅民宿</td><td>充足 · ¥XXX/晚档</td></tr>
+    <tr><td><b>吸引点匹配</b></td><td><span class="tag">亲子 ✦✦✦</span><span class="tag">老人 ✦✦</span></td><td><span class="tag">亲子 ✦</span><span class="tag">老人 ✦✦✦</span></td><td><span class="tag">亲子 ✦✦</span><span class="tag">老人 ✦✦✦</span></td></tr>
+    <tr><td><b>门票档</b></td><td>人均 ¥XXX 左右</td><td>人均 ¥XXX 左右</td><td>人均 ¥XXX 左右</td></tr>
+    <tr><td><b>粗预算（全家）</b></td><td>¥X,XXX–X,XXX</td><td>¥X,XXX–X,XXX</td><td>¥X,XXX–X,XXX</td></tr>
+    <tr><td><b>一句话气质</b></td><td>玩法密集，节奏快</td><td>松弛，看景为主</td><td>折中，可进可退</td></tr>
+  </table>
+
+  <h2>目的地共识（搜来的口径）</h2>
+  <div class="note">
+    <b>方案A</b>：适合带娃（共识）、节假日人流集中在 XX（避雷口径）、XX 玩法被反复推荐。<br>
+    <b>方案B</b>：适合老人（共识）、XX 时段排队 X 小时（避雷）。<br>
+    <span class="src">来源：小红书搜索 / 攻略镜像（间接源）· 检索日期 · 共识≠事实，执行级数据拍板后核</span>
+  </div>
+
+  <div class="reco">
+    <span class="th">编辑部推荐</span>
+    推荐方案A，理由两三条（匹配构成、车程可控、预算内）。什么情况下选别的（例：老人占主导选B）。<br>
+    拍板方式：回一句「就选X」，或 <code>/trip-go X</code>。拍板后本页封存。
+  </div>
+
+  <div class="end">轻页 · 生成日期 · 由 ai-trip-planner 产出（模板示例，内容虚构）</div>
+</div>
+</body>
+</html>

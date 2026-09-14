@@ -1,0 +1,23 @@
+{
+  "name": "ai-trip-planner",
+  "version": "0.1.0",
+  "description": "中文旅行攻略工作流：两阶段状态机（选方案 → 细化）驱动 agent 从调研核数到特辑风网页成刊上线一条龙，自驾、自由行、亲子出行皆宜。",
+  "author": {
+    "name": "jerryjiao",
+    "url": "https://github.com/jerryjiao"
+  },
+  "homepage": "https://github.com/jerryjiao/ai-trip-planner",
+  "repository": "https://github.com/jerryjiao/ai-trip-planner",
+  "license": "MIT",
+  "keywords": [
+    "travel",
+    "guide",
+    "itinerary",
+    "trip",
+    "china"
+  ],
+  "skills": [
+    "./skills/ai-trip-planner"
+  ],
+  "commands": "./commands"
+}

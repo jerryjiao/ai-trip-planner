@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ai-trip-planner · 中文旅行攻略从调研到上线一条龙</title>
-<meta name="description" content="开源 ZCode / Claude Code 插件：两阶段状态机驱动 agent 产出特辑风网页攻略站。零 key 起步、缺件降级、只读红线。">
+<meta name="description" content="开源 ZCode / Claude Code 插件：两阶段状态机驱动 agent 产出特辑风网页攻略站。小红书、点评、携程、飞猪、高德五平台自动查，零 key 起步、缺件降级、只读红线。">
 <style>
 :root{--ink:#233429;--sub:#76847a;--faint:#a3afa5;--line:#e6e1d2;--green:#1d7a53;--deep:#145239;--soft:#eef6f0;--amber:#a3691a;--paper:#fbfaf5;}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
@@ -52,7 +52,7 @@ td b{color:var(--deep);}
   <div class="txt">
     <span class="kicker">ZCode / Claude Code 插件 · 开源 MIT</span>
     <h1 class="serif">攻略，从调研做到上线</h1>
-    <div class="sub">两阶段状态机驱动 agent 端到端产出特辑风网页攻略站：摸底选方案 → 拍板 → 逐天核数成稿 → 部署给全家看。点评核店、高德核路、小红书定玩法，额度有人管、缺件自动降级。</div>
+    <div class="sub">两阶段状态机驱动 agent 端到端产出特辑风网页攻略站：小红书定玩法、点评定店、携程飞猪定住宿、高德定路——五个平台自动查，订房深链家人点一下就到订房页。额度有人管、缺件自动降级。</div>
   </div>
 </div>
 
@@ -76,18 +76,31 @@ td b{color:var(--deep);}
     <tr><td><b>/trip-help</b></td><td>迷路导航：现在在哪、下一步干嘛</td></tr>
   </table>
 
-  <h2 class="sec"><span class="no">叁</span>缺件不废流程</h2>
+  <h2 class="sec"><span class="no">叁</span>五个平台自动查</h2>
+  <div class="sec-sub">每家平台管一类事实，agent 按口诀逐层核数：软情报定玩法 → 硬数据定店 → 比价定住宿 → 地图定事实。</div>
+  <table>
+    <tr><th>平台</th><th>定什么</th><th>怎么查</th></tr>
+    <tr><td><b>小红书</b></td><td>玩法 / 避雷 / 动线（软情报）</td><td>只读搜索，额度账本管节奏</td></tr>
+    <tr><td><b>大众点评</b></td><td>餐厅定店（硬数据）</td><td>品类好评榜选店 + 进店实读全量</td></tr>
+    <tr><td><b>携程</b></td><td>住宿主查：档期价 / 房型 / 取消政策</td><td>详情实读 + 订房深链</td></tr>
+    <tr><td><b>飞猪</b></td><td>住宿比价 + 备用深链</td><td>同店交叉比价，价差如实标注</td></tr>
+    <tr><td><b>高德</b></td><td>车程 / 坐标 / 路线图（事实核验）</td><td>零 key 基础层 + 可选增强层</td></tr>
+  </table>
+  <div class="note"><b>订房深链</b>：查好的住宿直接生成带日期与店名的订房页链接，嵌在攻略住处卡里，家人点一下就到订房页——<b>下单仍由你自己完成</b>，插件只读不代订。</div>
+
+  <h2 class="sec"><span class="no">肆</span>缺件不废流程</h2>
   <div class="sec-sub">降级矩阵：缺什么就换哪条通道，核心流程都能走完。</div>
   <table>
     <tr><th>缺什么</th><th>自动降级到</th><th>影响</th></tr>
     <tr><td>小红书登录态</td><td>搜索引擎间接源</td><td>软情报质量略降</td></tr>
     <tr><td>点评登录</td><td>公开快照 + 公开评价页</td><td>定店标「未核实」</td></tr>
+    <tr><td>携程/飞猪登录</td><td>公开列表与档期价（未登录口径）</td><td>住宿核价标「待核实」；订房深链不受影响</td></tr>
     <tr><td>高德 key</td><td>网页版整页截图路线图</td><td>精细度略降</td></tr>
     <tr><td>wrangler</td><td>本地静态站交付</td><td>不上线，其余不变</td></tr>
   </table>
 
-  <h2 class="sec"><span class="no">肆</span>产出长什么样</h2>
-  <div class="sec-sub">攻略特辑风：杂志式排版，六视口自适应（1440→360），手机上锚点直跳餐厅、按钮直唤高德导航。</div>
+  <h2 class="sec"><span class="no">伍</span>产出长什么样</h2>
+  <div class="sec-sub">攻略特辑风：杂志式排版，六视口自适应（1440→360），手机上锚点直跳餐厅、按钮直唤高德导航、住处卡订房直达。</div>
   <div class="shots">
     <figure><img src="img/example-zine-index.png" alt="特辑风攻略总览页示例（虚构占位内容）"><figcaption>总览页：刊头 / hero / 行程总览 / 预算与装备清单（截图为模板虚构占位示例）</figcaption></figure>
     <figure><img src="img/example-zine-day.png" alt="逐天攻略页示例（虚构占位内容）"><figcaption>日页：今日动线 / 逐时安排 / 车程 / 门票 / 餐厅首选备选（虚构示例）</figcaption></figure>
@@ -96,7 +109,7 @@ td b{color:var(--deep);}
   </div>
   <p class="src">截图全部来自插件自带模板的虚构占位实例，非任何真实行程。</p>
 
-  <h2 class="sec"><span class="no">伍</span>边界</h2>
+  <h2 class="sec"><span class="no">陆</span>边界</h2>
   <div class="note">
     <b>只读不代操作</b>：不代下单、不代付款、不代发布；小红书永久只查不发。<br>
     <b>登录与验证交还用户</b>：扫码、滑块人工完成，触发风控即停。<br>

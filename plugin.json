@@ -1,4 +1,5 @@
 {
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "ai-trip-planner",
   "version": "0.3.0",
   "description": "中文旅行攻略工作流：两阶段状态机（选方案 → 细化）驱动 agent 从调研核数到特辑风网页成刊上线一条龙，自驾、自由行、亲子出行皆宜。",
@@ -15,9 +16,5 @@
     "itinerary",
     "trip",
     "china"
-  ],
-  "skills": [
-    "./skills/ai-trip-planner"
-  ],
-  "commands": "./commands"
+  ]
 }

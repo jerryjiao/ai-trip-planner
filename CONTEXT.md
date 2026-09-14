@@ -1,10 +1,10 @@
 # CONTEXT · 项目上下文与领域词汇
 
-ai-trip-planner：开源的 ZCode / Claude Code 插件，用两阶段状态机驱动 agent 端到端产出中文旅行攻略网页站（调研核数 → 成刊 → 部署）。本文件给贡献者一张词汇与架构地图。
+ai-trip-planner：开源的 ZCode / Claude Code / Codex 插件，用两阶段状态机驱动 agent 端到端产出中文旅行攻略网页站（调研核数 → 成刊 → 部署）。本文件给贡献者一张词汇与架构地图。
 
 ## 架构一句话
 
-一个主 skill（端到端流程）+ 十篇分域手册（渐进披露）+ 三套模板（zine 特辑壳 / lite 轻页壳 / trip-state 状态模板）+ 四个脚本（小红书只读搜索 ×2 / 高德路线渲染 / staging 构建）+ 四个命令（薄壳，只指路）。状态持久化在攻略项目目录的 `trip-state.md`。
+一个主 skill（端到端流程）+ 十篇分域手册（渐进披露）+ 三套模板（zine 特辑壳 / lite 轻页壳 / trip-state 状态模板）+ 四个脚本（小红书只读搜索 ×2 / 高德路线渲染 / staging 构建）+ 四个命令（薄壳，只指路）。状态持久化在攻略项目目录的 `trip-state.md`。分发面是三清单各认各的宿主：`.zcode-plugin/`（ZCode）、`.claude-plugin/`（Claude Code 市场源，兼作 Codex legacy 市场源）、根 `plugin.json`（Codex 可移植清单）。
 
 ## 领域词汇
 

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ai-trip-planner · 中文旅行攻略从调研到上线一条龙</title>
-<meta name="description" content="开源 ZCode / Claude Code 插件：两阶段状态机驱动 agent 产出特辑风网页攻略站。小红书、点评、携程、飞猪、高德五平台自动查，零 key 起步、缺件降级、只读红线。">
+<meta name="description" content="开源 ZCode / Claude Code / Codex 插件：说一句想去哪，agent 自动上小红书、大众点评、携程、飞猪、高德查真数据，做成手机上直接用的网页攻略，订房链接点一下直达订房页。只查不代订。">
 <style>
 :root{--ink:#233429;--sub:#76847a;--faint:#a3afa5;--line:#e6e1d2;--green:#1d7a53;--deep:#145239;--soft:#eef6f0;--amber:#a3691a;--paper:#fbfaf5;}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
@@ -50,57 +50,58 @@ td b{color:var(--deep);}
 
 <div class="hero">
   <div class="txt">
-    <span class="kicker">ZCode / Claude Code 插件 · 开源 MIT</span>
+    <span class="kicker">ZCode / Claude Code / Codex 插件 · 开源 MIT</span>
     <h1 class="serif">攻略，从调研做到上线</h1>
-    <div class="sub">两阶段状态机驱动 agent 端到端产出特辑风网页攻略站：小红书定玩法、点评定店、携程飞猪定住宿、高德定路——五个平台自动查，订房深链家人点一下就到订房页。额度有人管、缺件自动降级。</div>
+    <div class="sub">「帮我做份成都亲子三日游攻略」——它真去查：上小红书看玩法、点评挑餐厅、携程飞猪比酒店、高德算车程，再把查到的一切做成手机上能直接用的网页攻略。每条信息有出处，订房点链接直达，只查不代订。</div>
   </div>
 </div>
 
 <div class="page">
 
   <h2 class="sec"><span class="no">壹</span>30 秒装上</h2>
-  <div class="sec-sub">本仓库同时是单插件 marketplace，两条命令装完。</div>
-  <div class="cmd"><span class="c"># 1. 添加插件市场</span><br>/plugin marketplace add jerryjiao/ai-trip-planner<br><br><span class="c"># 2. 安装并体检</span><br>/plugin install ai-trip-planner@ai-trip-planner<br>/trip-doctor</div>
+  <div class="sec-sub">不用找第三方市场，这个仓库自己就是插件市场，两条命令装完，第三句直接开工。ZCode / Claude Code 与 Codex 都支持。</div>
+  <div class="cmd"><span class="c"># ZCode / Claude Code</span><br>/plugin marketplace add jerryjiao/ai-trip-planner<br>/plugin install ai-trip-planner@ai-trip-planner<br><br><span class="c"># Codex（CLI ≥ 0.110）</span><br>codex plugin marketplace add jerryjiao/ai-trip-planner<br>codex plugin add ai-trip-planner@ai-trip-planner<br><br><span class="c"># 开跑：告诉它想去哪（Codex 直接说「帮我做份攻略」）</span><br>/trip-plan</div>
   <div class="btns">
     <a class="btn solid" href="https://github.com/jerryjiao/ai-trip-planner" target="_blank" rel="noopener">GitHub 仓库 ↗</a>
     <a class="btn ghost" href="https://github.com/jerryjiao/ai-trip-planner#为什么存在" target="_blank" rel="noopener">为什么存在</a>
   </div>
-  <p class="src">零 key 起步：地图环节扫码登录网页版即可；高德 JSAPI key 是可选增强。环境缺件的降级方式见下表。</p>
+  <p class="src">一条 key 都不用先申请：地图环节扫码登录网页版就行；高德 key 想配再配，配了路线图更精细。缺了什么怎么办，见第肆节。</p>
 
   <h2 class="sec"><span class="no">贰</span>四个命令</h2>
   <table>
     <tr><th>命令</th><th>干什么</th></tr>
-    <tr><td><b>/trip-plan</b></td><td>总入口：新攻略摸底开做，老攻略自动续接进度</td></tr>
-    <tr><td><b>/trip-go &lt;方案&gt;</b></td><td>阶段门：拍板选定方案，进入逐天细化（「就选X」同效）</td></tr>
-    <tr><td><b>/trip-doctor</b></td><td>体检：工具链、登录态、额度账本，✅/⚠️/❌ 矩阵</td></tr>
+    <tr><td><b>/trip-plan</b></td><td>开新攻略；做到一半的再喊它，自动接着上次进度</td></tr>
+    <tr><td><b>/trip-go &lt;方案&gt;</b></td><td>选定方案，进入逐天细化；直接说「就选X」也一样</td></tr>
+    <tr><td><b>/trip-doctor</b></td><td>自检：哪些网站登录了、各平台还能查多少次，✅/⚠️/❌ 一目了然</td></tr>
     <tr><td><b>/trip-help</b></td><td>迷路导航：现在在哪、下一步干嘛</td></tr>
   </table>
+  <p class="src">斜杠命令是 ZCode / Claude Code 的入口；Codex 下不用命令，<code>$ai-trip-planner</code> 或一句自然语言直达同一工作流。</p>
 
   <h2 class="sec"><span class="no">叁</span>五个平台自动查</h2>
-  <div class="sec-sub">每家平台管一类事实，agent 按口诀逐层核数：软情报定玩法 → 硬数据定店 → 比价定住宿 → 地图定事实。</div>
+  <div class="sec-sub">五家平台各管一摊，按顺序一层层查实：先看哪里好玩，再定哪家吃，再比哪家住，最后核车程路线。</div>
   <table>
     <tr><th>平台</th><th>定什么</th><th>怎么查</th></tr>
-    <tr><td><b>小红书</b></td><td>玩法 / 避雷 / 动线（软情报）</td><td>只读搜索，额度账本管节奏</td></tr>
-    <tr><td><b>大众点评</b></td><td>餐厅定店（硬数据）</td><td>品类好评榜选店 + 进店实读全量</td></tr>
-    <tr><td><b>携程</b></td><td>住宿主查：档期价 / 房型 / 取消政策</td><td>详情实读 + 订房深链</td></tr>
+    <tr><td><b>小红书</b></td><td>玩法 / 避雷 / 路线顺不顺</td><td>只看不发，查的次数有上限管着</td></tr>
+    <tr><td><b>大众点评</b></td><td>定餐厅</td><td>按好评榜选店，进店把评价一条条读完</td></tr>
+    <tr><td><b>携程</b></td><td>订哪里的住宿：你出行那几天的房价 / 房型 / 取消政策</td><td>读详情页 + 生成订房链接</td></tr>
     <tr><td><b>飞猪</b></td><td>住宿比价 + 备用深链</td><td>同店交叉比价，价差如实标注</td></tr>
-    <tr><td><b>高德</b></td><td>车程 / 坐标 / 路线图（事实核验）</td><td>零 key 基础层 + 可选增强层</td></tr>
+    <tr><td><b>高德</b></td><td>车程 / 坐标 / 路线图</td><td>不用 key 就能用，配 key 更精细</td></tr>
   </table>
-  <div class="note"><b>订房深链</b>：查好的住宿直接生成带日期与店名的订房页链接，嵌在攻略住处卡里，家人点一下就到订房页——<b>下单仍由你自己完成</b>，插件只读不代订。</div>
+  <div class="note"><b>订房深链</b>：查好的住宿直接生成带日期与店名的订房页链接，嵌在攻略的住宿卡片里，家人点一下就到订房页——<b>下单仍由你自己完成</b>，插件只读不代订。</div>
 
-  <h2 class="sec"><span class="no">肆</span>缺件不废流程</h2>
-  <div class="sec-sub">降级矩阵：缺什么就换哪条通道，核心流程都能走完。</div>
+  <h2 class="sec"><span class="no">肆</span>工具不齐？照样做完。</h2>
+  <div class="sec-sub">缺了哪样，就自动换条路走，攻略照样做得完。</div>
   <table>
-    <tr><th>缺什么</th><th>自动降级到</th><th>影响</th></tr>
-    <tr><td>小红书登录态</td><td>搜索引擎间接源</td><td>软情报质量略降</td></tr>
+    <tr><th>缺什么</th><th>自动换成</th><th>影响</th></tr>
+    <tr><td>小红书登录态</td><td>绕道搜索引擎找</td><td>玩法情报质量略降</td></tr>
     <tr><td>点评登录</td><td>公开快照 + 公开评价页</td><td>定店标「未核实」</td></tr>
-    <tr><td>携程/飞猪登录</td><td>公开列表与档期价（未登录口径）</td><td>住宿核价标「待核实」；订房深链不受影响</td></tr>
+    <tr><td>携程/飞猪登录</td><td>不登录也能看到的公开房价</td><td>比价结果标「待核实」；订房深链不受影响</td></tr>
     <tr><td>高德 key</td><td>网页版整页截图路线图</td><td>精细度略降</td></tr>
     <tr><td>wrangler</td><td>本地静态站交付</td><td>不上线，其余不变</td></tr>
   </table>
 
   <h2 class="sec"><span class="no">伍</span>产出长什么样</h2>
-  <div class="sec-sub">攻略特辑风：杂志式排版，六视口自适应（1440→360），手机上锚点直跳餐厅、按钮直唤高德导航、住处卡订房直达。</div>
+  <div class="sec-sub">杂志排版的网页攻略，手机打开一样好用：点目录直接跳到餐厅，点地址唤起高德导航，住宿卡片按钮点一下到订房页。</div>
   <div class="shots">
     <figure><img src="img/example-zine-index.png" alt="特辑风攻略总览页示例（虚构占位内容）"><figcaption>总览页：刊头 / hero / 行程总览 / 预算与装备清单（截图为模板虚构占位示例）</figcaption></figure>
     <figure><img src="img/example-zine-day.png" alt="逐天攻略页示例（虚构占位内容）"><figcaption>日页：今日动线 / 逐时安排 / 车程 / 门票 / 餐厅首选备选（虚构示例）</figcaption></figure>
@@ -113,7 +114,7 @@ td b{color:var(--deep);}
   <div class="note">
     <b>只读不代操作</b>：不代下单、不代付款、不代发布；小红书永久只查不发。<br>
     <b>登录与验证交还用户</b>：扫码、滑块人工完成，触发风控即停。<br>
-    <b>额度是保守经验默认</b>（非平台规则），可自行调整。尊重各平台服务条款。
+    <b>查的次数有保守上限</b>（是我们设的经验值，不是平台规定），可自行调整。尊重各平台服务条款。
   </div>
 
   <div class="end">

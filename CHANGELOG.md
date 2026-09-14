@@ -2,6 +2,15 @@
 
 本项目遵守 [语义化版本](https://semver.org/spec/v2.0.0.html)。
 
+## 0.3.0（2026-09-14）
+
+Codex 宿主支持：别人的 Codex 两条命令装上本插件。
+
+- 新增根 `plugin.json`（agent-plugins.org 可移植格式）：补 Codex 侧插件身份与版本元数据（此前 legacy 路径下 `codex plugin list` 显示 `version: local`）
+- 本机实测全链路（codex-cli 0.154.0）：`codex plugin marketplace add` → `codex plugin add` → skill 以 `ai-trip-planner:ai-trip-planner` 出现在模型可见 skills 清单（`codex debug prompt-input` 验证）；命令被 Codex 自动迁移为 `source-command-*` skill 作兜底
+- README 与官网立三宿主口径（ZCode / Claude Code / Codex），新增 Codex 安装两条命令；五平台口径不动
+- ADR 0004 记录分发层「三清单」格局与决策
+
 ## 0.2.0（2026-09-14）
 
 比价通道（携程/飞猪）：住宿选店 + 档期实读 + 订房深链标配。

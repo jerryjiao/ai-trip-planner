@@ -1,17 +1,26 @@
 # ai-trip-planner
 
-中文旅行攻略 · 从调研到上线一条龙。一个开源 ZCode / Claude Code 插件：**两阶段状态机**（选方案 → 细化）驱动 agent 端到端产出**特辑风网页攻略站**并部署上线。自驾、自由行、亲子出行皆宜。
+中文旅行攻略 · 从调研到上线一条龙。一个开源 ZCode / Claude Code / Codex 插件：**两阶段状态机**（选方案 → 细化）驱动 agent 端到端产出**特辑风网页攻略站**并部署上线。自驾、自由行、亲子出行皆宜。
 
 ## 30 秒安装
 
-ZCode / Claude Code 里执行（本仓库同时是单插件 marketplace）：
+本仓库同时是单插件 marketplace，ZCode / Claude Code 与 Codex 都是两条命令装完。
+
+ZCode / Claude Code 里执行：
 
 ```
 /plugin marketplace add jerryjiao/ai-trip-planner
 /plugin install ai-trip-planner@ai-trip-planner
 ```
 
-装完跑 `/trip-doctor` 看环境健康矩阵，然后 `/trip-plan` 开第一个攻略。官网：https://jerryjiao.github.io/ai-trip-planner/环境引导与降级说明见 `skills/ai-trip-planner/references/setup.md`。
+Codex（CLI ≥ 0.110）里执行：
+
+```
+codex plugin marketplace add jerryjiao/ai-trip-planner
+codex plugin add ai-trip-planner@ai-trip-planner
+```
+
+装完即用：ZCode / Claude Code 跑 `/trip-doctor` 看环境健康矩阵，`/trip-plan` 开第一个攻略；Codex 不用命令，`$ai-trip-planner` 显式调用或直接说「帮我做一份 XX 攻略」即可（工作流自带会话开局）。官网：https://jerryjiao.github.io/ai-trip-planner/ 环境引导与降级说明见 `skills/ai-trip-planner/references/setup.md`。
 
 ## 为什么存在
 
@@ -37,6 +46,8 @@ ZCode / Claude Code 里执行（本仓库同时是单插件 marketplace）：
 只读不代订：深链把家人送到订房页，下单永远你自己完成。
 
 ## 四个命令
+
+斜杠命令是 ZCode / Claude Code 的入口；Codex 下无需命令，`$ai-trip-planner` 或自然语言直达同一工作流（Codex 安装时会把命令自动迁移成 `source-command-*` skill 作兜底）。
 
 | 命令 | 干什么 |
 |---|---|
